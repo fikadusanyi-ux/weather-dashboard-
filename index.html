@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean, responsive weather dashboard powered by Open-Meteo." />
+  <title>Weatherly — Weather Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark">☀</span> weatherly</a>
+      <form class="search" id="searchForm">
+        <span aria-hidden="true">⌕</span>
+        <input id="cityInput" type="search" placeholder="Search for a city..." aria-label="Search for a city" />
+        <button type="submit">Search</button>
+      </form>
+      <button class="unit-toggle" id="unitToggle" type="button" aria-label="Toggle temperature unit">°C <span>/ °F</span></button>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow">YOUR WEATHER, AT A GLANCE</p>
+        <h1>Good day. <span>Stay weather-ready.</span></h1>
+      </div>
+      <p class="updated" id="updated">Getting your forecast…</p>
+    </section>
+
+    <section class="dashboard">
+      <article class="current-card">
+        <div class="current-top">
+          <div>
+            <p class="eyebrow light">CURRENT WEATHER</p>
+            <h2 id="placeName">Loading location…</h2>
+            <p class="date-line" id="dateLine">—</p>
+          </div>
+          <div class="weather-symbol" id="currentIcon" aria-hidden="true">☀️</div>
+        </div>
+        <div class="current-main">
+          <div class="temperature"><span id="currentTemp">--</span><sup id="degree">°C</sup></div>
+          <div>
+            <p class="condition" id="condition">Loading…</p>
+            <p class="feels">Feels like <strong id="feelsLike">--°</strong></p>
+          </div>
+        </div>
+        <div class="high-low">
+          <span>↑ <b id="todayHigh">--°</b> High</span>
+          <span>↓ <b id="todayLow">--°</b> Low</span>
+        </div>
+      </article>
+
+      <article class="details-card">
+        <div class="section-heading"><div><p class="eyebrow">TODAY'S DETAILS</p><h3>Weather conditions</h3></div><span class="sun-dot">✦</span></div>
+        <div class="details-grid">
+          <div class="detail"><span class="detail-icon">💧</span><div><p>Humidity</p><strong id="humidity">--%</strong></div></div>
+          <div class="detail"><span class="detail-icon">💨</span><div><p>Wind speed</p><strong id="wind">-- km/h</strong></div></div>
+          <div class="detail"><span class="detail-icon">☀️</span><div><p>UV index</p><strong id="uv">--</strong></div></div>
+          <div class="detail"><span class="detail-icon">🌡️</span><div><p>Feels like</p><strong id="feelsDetail">--°</strong></div></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="forecast-section">
+      <div class="section-heading"><div><p class="eyebrow">THE NEXT FEW DAYS</p><h3>5-day forecast</h3></div><span class="subtle">Plan ahead</span></div>
+      <div class="forecast-grid" id="forecastGrid">
+        <div class="loading">Loading forecast…</div>
+      </div>
+    </section>
+    <footer>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a> · Built with HTML, CSS & JavaScript</footer>
+    <p class="error" id="error" role="status"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
